@@ -24,7 +24,7 @@ const nrf_drv_rtc_t rtc = NRF_DRV_RTC_INSTANCE(1); /**< Declaring an instance of
 static uint8_t ack_payload[NRF_GZLL_CONST_MAX_PAYLOAD_LENGTH]; ///< Placeholder for received ACK payloads from Host.
 
 // Debounce time (dependent on tick frequency)
-#define DEBOUNCE 5
+#define DEBOUNCE 10
 // Mark as inactive after a number of ticks:
 #define INACTIVITY_THRESHOLD 500 // 0.5sec
 
@@ -205,10 +205,10 @@ int main()
 
     // Attempt sending every packet up to 100 times
     nrf_gzll_set_max_tx_attempts(100);
-    nrf_gzll_set_timeslots_per_channel(4);
-    nrf_gzll_set_channel_table(channel_table,3);
-    nrf_gzll_set_datarate(NRF_GZLL_DATARATE_1MBIT);
-    nrf_gzll_set_timeslot_period(900);
+    //nrf_gzll_set_timeslots_per_channel(4);
+    //nrf_gzll_set_channel_table(channel_table,3);
+    //nrf_gzll_set_datarate(NRF_GZLL_DATARATE_1MBIT);
+    //nrf_gzll_set_timeslot_period(900);
 
     // Addressing
     nrf_gzll_set_base_address_0(0x01020304);
